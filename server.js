@@ -36,7 +36,7 @@ app.get('/',
     res.json({ username: req.user.username, email: req.user.emails[0].value });
   });
   
-// curl -v --user jack:secret --digest "http://127.0.0.1:3000/hello?name=Word&x=y"
+// curl -v --user jack:secret --digest "http://127.0.0.1:3000/hello?name=World&x=y"
 app.get('/hello',
   passport.authenticate('digest', { session: false }),
   function(req, res) {
