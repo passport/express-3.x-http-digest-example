@@ -12,7 +12,7 @@ var db = require('./db');
 // hash, and authentication will fail if the computed value does not match that
 // of the request.  The user object will be set at `req.user` in route handlers
 // after authentication.
-passport.use(new Strategy(
+passport.use(new Strategy({ qop: 'auth' },
   function(username, cb) {
     db.users.findByUsername(username, function(err, user) {
       if (err) { return cb(err); }
